@@ -3,6 +3,7 @@ import express from 'express'
 import AuthRouter from './routes/Auth.route.js';
 import dotenv from 'dotenv'
 import connectDB from './util/db.js';
+import productRoute from './routes/product.routes.js';
 dotenv.config({});
 
 const app = express();
@@ -14,6 +15,8 @@ app.use(express.json());
 
 
 app.use(AuthRouter);
+
+app.use("/product",productRoute)
 // Start server
 await connectDB();
 app.listen(PORT, () => {

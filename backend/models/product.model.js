@@ -2,13 +2,9 @@ import mongoose from "mongoose";
 
 
 const productSchema = new mongoose.Schema({
-  _id: {
-    type: String,
-    default: uuidv4
-  },
   farm: {
     type: String,
-    ref: 'Farm',
+    ref: 'User',
     required: true
   },
   name: {
