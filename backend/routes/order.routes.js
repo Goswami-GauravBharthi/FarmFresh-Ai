@@ -3,9 +3,9 @@ import {
   createOrder,
   getAllOrders,
   deleteOrder
-} from "../controllers/order.controller.js";
+} from "../controller/Order.controller.js";
 
-const orderRouter = express.orderRouter();
+const orderRouter = express.Router();
 
 orderRouter.post("/", createOrder);
 orderRouter.get("/", getAllOrders);
