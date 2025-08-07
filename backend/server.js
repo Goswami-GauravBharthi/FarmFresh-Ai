@@ -4,6 +4,8 @@ import AuthRouter from './routes/Auth.route.js';
 import dotenv from 'dotenv'
 import connectDB from './util/db.js';
 import productRoute from './routes/product.routes.js';
+import orderRouter from './routes/order.routes.js';
+import isAuthenticated from './middleware/isAutheticated.js';
 dotenv.config({});
 
 const app = express();
@@ -17,6 +19,8 @@ app.use(express.json());
 app.use(AuthRouter);
 
 app.use("/product",productRoute)
+
+app.use("/order", isAuthenticated, orderRouter);
 // Start server
 await connectDB();
 app.listen(PORT, () => {
